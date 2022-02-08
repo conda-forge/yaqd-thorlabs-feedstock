@@ -1,5 +1,5 @@
 {% set name = "yaqd-thorlabs" %}
-{% set version = "2022.1.0" %}
+{% set version = "2022.2.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: eea5ad0cdde1605d3cd5eb4c2354b7bf8a1b9f55867eb0b0857cb1dfe3003d73
+  sha256: 0019bc3df7f6822df05cbd52edbf6599e28259679853b99fea3d3f28a7a30bdd
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - yaqd-thorlabs-bsc201 = yaqd_thorlabs._thorlabs_bsc201:ThorlabsBSC201.main
@@ -22,6 +22,8 @@ build:
     - yaqd-thorlabs-lts150 = yaqd_thorlabs._thorlabs_lts150:ThorlabsLTS150.main
     - yaqd-thorlabs-lts300 = yaqd_thorlabs._thorlabs_lts300:ThorlabsLTS300.main
     - yaqd-thorlabs-mpc320 = yaqd_thorlabs._thorlabs_mpc320:ThorlabsMPC320.main
+    - yaqd-thorlabs-ell18 = yaqd_thorlabs._thorlabs_ell18:ThorlabsEll18.main
+    - yaqd-thorlabs-pm-triggered = yaqd_thorlabs._thorlabs_pm_triggered:ThorlabsPMTriggered.main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -37,6 +39,7 @@ requirements:
     - thorlabs-apt-protocol
     - pyserial
     - yaqd-core >=2020.06.3
+    - pyvisa-py
 
 test:
   imports:
@@ -51,6 +54,8 @@ test:
     - yaqd-thorlabs-lts150 --help
     - yaqd-thorlabs-lts300 --help
     - yaqd-thorlabs-mpc320 --help
+    - yaqd-thorlabs-ell18 --help
+    - yaqd-thorlabs-pm-triggered --help
   requires:
     - pip
 
