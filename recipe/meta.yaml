@@ -1,5 +1,5 @@
 {% set name = "yaqd-thorlabs" %}
-{% set version = "2022.2.0" %}
+{% set version = "2022.2.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0019bc3df7f6822df05cbd52edbf6599e28259679853b99fea3d3f28a7a30bdd
+  sha256: 85e100ca2f0c0c1b57177b55d08310f7df572bf5205fcfbdb49ca1c0d92e2764
 
 build:
   number: 0
