@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9e9296fc62574739e738ed6436180950b3e0eaed0c8ab1958cfa686b2fe1a9a2
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - yaqd-thorlabs-bsc201 = yaqd_thorlabs._thorlabs_bsc201:ThorlabsBSC201.main
@@ -28,14 +28,14 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - flit
     - thorlabs-apt-protocol
     - pyserial
     - yaqd-core >=2020.06.3
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - thorlabs-apt-protocol
     - pyserial
     - yaqd-core >=2020.06.3
@@ -58,6 +58,7 @@ test:
     - yaqd-thorlabs-pm-triggered --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://yaq.fyi
